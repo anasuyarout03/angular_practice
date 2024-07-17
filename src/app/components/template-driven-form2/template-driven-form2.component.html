@@ -1,0 +1,23 @@
+<h3 class="text-center">Template driven form2 works</h3>
+
+<form #myForm="ngForm" (submit)="submitForm(myForm.value)">
+    <p>
+        First Name:
+        <input name="firstName" #firstName="ngModel" ngModel [(ngModel)]="user.firstName" required  minlength="5"/>
+        <span class="text-danger" *ngIf="firstName.hasError('required')">FirstName is Required field</span>
+        <span class="text-danger" *ngIf="firstName.hasError('minlength')">Minimum 5 characters required</span>
+    </p>
+    <p>
+        Last Name:
+        <input name="lastName" ngModel [(ngModel)]="user.lastName" />
+    </p>
+    <p>
+        Email:
+        <input name="email" ngModel [(ngModel)]="user.email" />
+    </p>
+    
+    <input type="submit" value="Submit" class="mx-2" />
+    <input type="reset" value="Clear" class="mx-2" />
+</form>
+
+<h4>{{ myForm.value | json }}</h4>

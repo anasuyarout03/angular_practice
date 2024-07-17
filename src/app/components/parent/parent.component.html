@@ -1,0 +1,23 @@
+<div class="container" style="border:5px solid black;">
+    <div class="row">
+        <div class="col">
+            <h1 class="text-center">This is Parent Component</h1>
+            <div class="mb-2">My own data a is: {{a}} <input type="number" [(ngModel)]="a"> </div>
+            <button (click)="f1('hello')" class="btn btn-primary">click</button>
+            <div>My child's data name is: {{myName}}</div>
+            <div>
+                array items are: <span *ngFor="let item of arr">{{item}},&nbsp;</span>
+                <input #newNum />
+                <button (click)="arr.push(newNum.value)">Add new</button>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-2 mb-2">
+        <div class="col-sm-6" style="border:5px solid lightgreen;">
+            <app-child1 [aChild1]="a" [f1]="f1" #child1 (eventObj)="receiveDataFromChild($event)"></app-child1>
+        </div>
+        <div class="col-sm-6" style="border: 5px solid lightgreen;">
+            <app-child2 [aChild2]="a" [child1]="child1" [arr]="arr"></app-child2>
+        </div>
+    </div>
+</div>

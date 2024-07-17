@@ -1,0 +1,20 @@
+<h1 class="text-center">This is photos component</h1>
+<!-- <button class="btn btn-primary" (click)="fetchPhotos()">Fetch Data</button> -->
+
+<img src="https://media3.giphy.com/media/3oEjI6SIIHBdRxXI40/200w.gif?cid=6c09b952h238egybxyj70p24ph0212f7pmc03o21lzf9kols&ep=v1_gifs_search&rid=200w.gif&ct=g" 
+alt="" *ngIf="isLoading">
+
+<div class="container" *ngIf="!isLoading">
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let photo of photos">
+            <div class="card text-center" zoom>
+                <img src="{{photo.thumbnailUrl}}" class="card-img-top" alt="Not available">
+                <div class="card-body">
+                    <h5>{{photo.id}}</h5>
+                    <h5>{{photo.title}}</h5>
+                    <button class="btn btn-primary" [routerLink]="['/photodetails', photo.id]">View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<h1 class="text-center">products-api component</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let product of products">
+           <div class="card product text-center">
+            <p>{{product.id}}</p>
+            <img src="{{product.image}}" alt="not available" class="card-img-top" style="height: 300px;">
+            <p>{{product.title}}</p>
+            <p>{{product.price | currency}}</p>
+            <p>{{product.category}}</p>
+           </div> 
+        </div>
+    </div>
+</div>

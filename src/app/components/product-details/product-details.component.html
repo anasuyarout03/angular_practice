@@ -1,0 +1,12 @@
+<h1 class="text-center">product Details</h1>
+
+<div class="col-sm-3 offset-3">
+    <div class="card product text-center">
+        <img src="{{product.image}}" alt="" class="card-img-top">
+        <div class="card-body">
+            <h5 class="card-title">{{product.category}}</h5>
+            <p class="card-text my-title">{{product.title}}</p>
+            <p class="card-text">price:{{product.price | currency}}</p>
+        </div>
+    </div>
+</div>

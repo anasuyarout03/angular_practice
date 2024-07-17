@@ -1,0 +1,7 @@
+<h1 class="text-center"> This is Aboutus Component</h1>
+<hr>
+<a href="/careers">Go To Careers Page</a>                  <!-- getting reloaded -->
+
+<!-- by using navigate from one route to another route -->
+<button class="btn btn-primary mx-2" routerLink="/careers">Go To Careers Page</button>             <!-- not reloaded -->
+<button class="btn btn-secondary mx-2" (click)="doSomethingAndGoToCareers()">Go To Careers Page</button>

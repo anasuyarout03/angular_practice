@@ -1,0 +1,114 @@
+<style>
+    input{
+        border-radius: 5px;
+    }
+</style>
+
+<h3 class="text-center" style="color:red">This is Databinding component</h3>
+
+<!-- interpolation binding {{..}} -->
+<div>Name is: {{name}}</div>
+
+<!-- property binding [..] -->
+<div>Name is: <span [innerHTML]="name"></span></div>
+<div>Name is: <span bind-innerHTML="name"></span></div>
+
+.................................................................................................................................................
+<br />
+
+<!-- interpolation binding -->
+<img src={{img_url}} alt="" class="m-1">
+
+<!-- property binding -->
+<img [src]=img_url alt="" class="m-1">
+<img bind-src=img_url alt="" class="m-1">
+
+.................................................................................................................................................
+<br />
+
+<!-- interpolation binding -->
+<input value={{name}} class="m-1" />
+
+<!-- property binding -->
+<input [value]=name class="m-1" />
+<input bind-value=name class="m-1" />
+
+<!-- 2 way binding -->
+<input [(ngModel)]="name" class="m-1" /> <br>
+
+.................................................................................................................................................
+<br />
+
+<!-- normal -->
+<button class="btn btn-primary m-1">button-1</button>
+
+<!-- interpolation binding -->
+<button class="btn btn-primary m-1" disabled={{flag}}>button-2</button>
+
+<!-- property binding -->
+<button class="btn btn-primary m-1" [disabled]=flag>button-3</button>
+<button class="btn btn-primary" bind-disabled=flag>button-4</button> <br>
+
+.................................................................................................................................................
+<br />
+
+<!-- Event binding (..) -->
+<button class="btn btn-danger m-1" (click)="f1()">btn-1</button>
+<button class="btn btn-danger m-1" on-click="f1()">btn-2</button>
+<button class="btn btn-primary m-1" (click)="add()">ADD</button>
+<button class="btn btn-primary m-1" (click)="addition(10,20)">addition</button> <br>
+
+.................................................................................................................................................
+<br />
+
+<h2 [hidden]="flag">Helloooo Hiiiiii</h2>{{flag}}
+<button (click)="toggleFlag()">{{ flag ? 'SHOW' : 'HIDE'}}</button>
+
+<br />...........................................................................................................................................
+<br />
+
+<input type="{{flag?'text':'password'}}" placeholder="Enter Your Password" />
+<input type="checkbox" (change)="flag=!flag" class="m-1">Show password
+
+<br />...........................................................................................................................................
+<br />
+
+<textarea cols="30" rows="3" maxlength="100" [(ngModel)]="msg"></textarea>
+<p>Remaining: {{100 - msg.length}}</p>
+
+<br />...........................................................................................................................................
+<br />
+
+<select [(ngModel)]="selectedState">
+    <Option>Odisha</Option>
+    <Option>Karnataka</Option>
+    <Option>Andhra Pradesh</Option>
+    <Option>Goa</Option>
+    <Option>Kerala</Option>
+</select>
+<h2>Your state name is: {{selectedState}} </h2>
+
+<br />...........................................................................................................................................
+<br />
+
+<p>Number-1: <input [(ngModel)]="number1"/></p>
+<p>Number-2: <input [(ngModel)]="number2"/></p>
+<button class="btn btn-primary m-1" (click)="Add()">add</button>
+<button class="btn btn-primary m-1" (click)="Subtraction()">Sub</button>
+<button class="btn btn-primary m-1" (click)="Multiply()">Mul</button>
+
+<br />...........................................................................................................................................
+<br />
+
+<!-- Template Reference Variable -->
+<p>Number-1: <input #num1/></p>
+<p>Number-2: <input ref-num2/></p>
+<button (click)="Addition1(num1.value,num2.value)" class="btn btn-primary m-1">ADD</button>
+<button (click)="Subtraction1(num1.value,num2.value)" class="btn btn-primary">SUB</button>
+
+<br />...........................................................................................................................................
+<br />
+
+<!-- Template Reference Variable -->
+<input type="text" id="box1" name="myInputbox1" placeholder="enter something.."  class="m-1" #mybox1>
+<button (click)="test(mybox1)" class="btn btn-secondary">Test</button>

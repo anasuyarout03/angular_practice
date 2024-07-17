@@ -1,0 +1,29 @@
+<h3 class="text-center">Template driven form1 works</h3> -->
+
+<form #myForm="ngForm" (submit)="submitForm(myForm.value)">
+    <p>
+        First Name:
+         <!-- <input name="firstName" ngModel #firstName="ngModel" />  -->
+        <input name="firstName" ngModel [(ngModel)]="user.firstName" />
+    </p>
+    <p>
+        Last Name:
+        <input name="lastName" ngModel [(ngModel)]="user.lastName" />
+    </p>
+    <p>
+        Email:
+        <input name="email" ngModel />
+    </p>
+    <fieldset ngModelGroup="address">
+        <p>Street: <input name="street" ngModel /></p>
+        <p>City: <input name="city" ngModel /></p>
+        <p>PIN: <input name="pin" ngModel /></p>
+    </fieldset>
+
+    <input type="submit" value="Submit" class="mx-2" />
+    <input type="reset" value="Clear" class="mx-2" />
+    <button type="button" (click)="resetForm(myForm)">Reset</button>
+</form> 
+
+<h4>{{ myForm.value | json }}</h4>
+<!-- <h4>{{ firstName.value | json }}</h4> --> -->

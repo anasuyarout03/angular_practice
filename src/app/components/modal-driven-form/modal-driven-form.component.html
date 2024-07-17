@@ -1,0 +1,48 @@
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 offset-3">
+            <h3>Modal driven form works</h3>
+
+            <form [formGroup]="registerForm" (submit)="submitMyForm(registerForm)">
+                <p>
+                    FirstName:
+                    <input formControlName="firstName" />
+                    <span class="text-danger" *ngIf="registerForm.controls.firstName.hasError('required')">Firstname is required</span>
+                    <span class="text-danger" *ngIf="registerForm.controls.firstName.hasError('minlength')">Firstname should have minimum 5 chars</span>
+                </p>
+                <p>
+                    LastName:
+                    <input formControlName="lastName" />
+                </p>
+                <p>
+                    email:
+                    <input formControlName="email" />
+                    <span class="text-danger" *ngIf="registerForm.controls.email.hasError('required')">Email is required</span>
+                    <span class="text-danger" *ngIf="registerForm.controls.email.hasError('email')">Email format is not correct</span>
+                </p>
+            
+                <fieldset formGroupName="address">
+                    <p>
+                        Street:
+                        <input formControlName="street" />
+                    </p>
+                    <p>
+                        City:
+                        <input formControlName="city" />
+                    </p>
+                    <p>
+                        PIN:
+                        <input formControlName="pin" />
+                    </p>
+                </fieldset>
+            
+                <input type="submit" value="Submit" class="mx-1" [disabled]="registerForm.invalid">
+                <input type="reset" value="Clear">
+            </form>
+            
+            <h3>Valid: {{registerForm.valid}}</h3>
+            <pre>{{registerForm.value | json}}</pre>
+        </div>
+    </div>
+</div>

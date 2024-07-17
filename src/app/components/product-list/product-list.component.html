@@ -1,0 +1,25 @@
+<div class="container">
+    <div>
+        <button (click)="test()">Test</button>
+    </div>
+    <div class="row">
+        <div class="col-sm-3" *ngFor="let product of products | paginate: {itemsPerPage: 4, currentPage: p}">
+            <div class="card product text-center" zoom>
+                <img src="{{product.image}}" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.category}}</h5>
+                    <p class="card-text my-title">{{product.title}}</p>
+                    <p class="card-text">price:{{product.price | currency}}</p>
+                    <p class="card-text">Rating:{{product.rating.rate}}</p>
+                    <!-- <button class="btn btn-primary">View Details</button> -->
+                    <button class="btn btn-primary" [routerLink]="['/productdetails']" [queryParams]="{id:product.id,title:product.title,price:product.price}">View Details</button>     <!-- query-param -->
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 offset-3">
+                <pagination-controls (pageChange)="p = $event"></pagination-controls>
+            </div>
+        </div>
+    </div>
+</div>
